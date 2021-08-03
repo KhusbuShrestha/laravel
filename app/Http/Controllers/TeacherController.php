@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faculty;
+use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -73,7 +74,9 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
-        return view('teacher.edit');
+        $faculties= Faculty::all();
+        $teacher = Teacher::find($id);
+        return view('teacher.create', compact('faculties'));
     }
 
     /**

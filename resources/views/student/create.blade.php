@@ -8,10 +8,10 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <a href="/student" class="btn btn-primary btn-sm">Back</a>
+                    <a href="/students" class="btn btn-primary btn-sm">Back</a>
                 </div>
                 <div class="card-body">
-                    <form action="/student" method="post">
+                    <form action="/students" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="">FullName</label>

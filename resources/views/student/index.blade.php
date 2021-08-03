@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="/student/create" class="btn btn-primary btn-sm">Add Student</a>
+                    <a href="/students/create" class="btn btn-primary btn-sm">Add Student</a>
                 </div>
                 <table class="table" id="tabledata" >
                     <thead>
@@ -28,10 +28,10 @@
                           <td>{{ $student->address }}</td>
                           <td>{{ $student->faculty->name }}</td>
                           <td>
-                            <form action="/student/{{ $student->id }}" method="post">
+                            <form action="/students/{{ $student->id }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <a href="" class="badge bg-primary text-decoration-none">Edit</a>
+                                <a href="/students/{{ $student->id }}/edit" class="badge bg-primary text-decoration-none">Edit</a>
                             <button type="submit" class="btn badge bg-danger text-decoration-none">Delete</button>
                             </form>
                         </tr>

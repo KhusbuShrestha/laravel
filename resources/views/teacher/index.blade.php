@@ -26,7 +26,7 @@
                         <form action="/teacher/{{ $teacher->id }}" method="post">
                             @csrf
                             @method('delete')
-                            <a href="" class="badge bg-primary text-decoration-none">Edit</a>
+                            <a href="/teacher/{{ $teacher->id }}/edit" class="badge bg-primary text-decoration-none">Edit</a>
                         <button type="submit" class="btn badge bg-danger text-decoration-none">Delete</button>
                         </form>
                     </td>
