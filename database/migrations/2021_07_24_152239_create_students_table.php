@@ -19,7 +19,9 @@ class CreateStudentsTable extends Migration
             $table->string('mobile');
             $table->string('address');
             $table->foreignID('faculty_id');
-            
+            $table->string('photo')->nullable();
+
+
             $table->timestamps();
         });
     }
