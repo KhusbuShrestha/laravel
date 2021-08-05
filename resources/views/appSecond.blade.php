@@ -11,8 +11,11 @@
     <title>School</title>
     {{-- DATA TABLE CSS --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+    {{-- EXPORT BUTTON THROUGH CSS --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+
+
 
   </head>
   <body> 

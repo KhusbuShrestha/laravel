@@ -38,13 +38,25 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        //VALIDATION
+        $data = $request->validate(['name'=>'required', 'mobile'=>'required', 'address' => 'required', 'faculty_id' => 'required']);
         
         $student = new Student();
         $student ->name = $request-> name;
         $student ->mobile = $request-> mobile;
         $student ->address = $request-> address;
         $student ->faculty_id = $request-> faculty_id;
+
+        if($request->hasFile('photo')){
+            $fileName = $request->photo;
+            $newName = time() . $fileName->getClientOriginalName();
+            $fileName->move('student',$newName);
+            $student->photo = 'student/' . $newName;
+        }
+
         $student->save();
+        $request->session()->flash('message', 'Record created successfuly');
+        
 
         return redirect()->back();
 
@@ -88,6 +100,12 @@ class StudentController extends Controller
         $student ->mobile = $request-> mobile;
         $student ->address = $request-> address;
         $student ->faculty_id = $request-> faculty_id;
+        if($request->hasFile('photo')){
+            $fileName = $request->photo;
+            $newName = time() . $fileName->getClientOriginalName();
+            $fileName->move('student',$newName);
+            $student->photo = 'student/' . $newName;
+        }
         $student->update();
 
         return redirect()->back();

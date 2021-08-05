@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -10,12 +9,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>School</title>
 
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  
+      {{-- DATA TABLE CSS --}}
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+      {{-- EXPORT BUTTON THROUGH CSS --}}
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -211,18 +217,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Student
               </p>
             </a>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="teacher" class="nav-link">
                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                 <p>
                   Teacher
                 </p>
               </a>
+            </li> --}}
               <li class="nav-item">
                 <a href="/faculty" class="nav-link">
                   <i class="nav-icon fas fa-book-reader"></i>
                   <p>
                     Faculty
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/gallery" class="nav-link">
+                  <i class="nav-icon fas fa-book-reader"></i>
+                  <p>
+                    Gallary
                   </p>
                 </a>
               </li>

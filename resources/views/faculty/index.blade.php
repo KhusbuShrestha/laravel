@@ -5,10 +5,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="/faculty/create" class="btn btn-primary btn-sm">Add Faculty</a>
+                    <a href="/faculty/create" class="btn btn-primary btn-sm">Add Faculty <i class="fas fa-swatchbook"></i></a>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table" id="tabledata">
                         <thead>
                             <tr>
                         <th scope="col">#</th>
@@ -22,7 +22,7 @@
                                 <td>{{ $faculty->id }}</td>
                                 <td>{{ $faculty->name }}</td>
                                 <td>
-                                    <a href="" class="badge bg-primary">Edit</a>
+                                    <a href="" class="badge bg-primary">Edit <i class="fas fa-user-edit"></i></a>
                                 </td>
                             </tr>
                                 

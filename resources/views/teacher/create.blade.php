@@ -14,6 +14,10 @@
             <form action="/teacher" method="post">
                 @csrf
                 <div class="form-group">
+                    <label for="photo">Student Photo</label>
+                    <input id="photo" class="form-control-file" type="file" name="photo">
+                </div>
+                <div class="form-group">
                     <label for="name">FullName</label>
                     <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
                 </div>
