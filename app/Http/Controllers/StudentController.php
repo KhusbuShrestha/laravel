@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Faculty;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class StudentController extends Controller
 {
@@ -50,7 +51,10 @@ class StudentController extends Controller
         if($request->hasFile('photo')){
             $fileName = $request->photo;
             $newName = time() . $fileName->getClientOriginalName();
-            $fileName->move('student',$newName);
+            $image_resize = Image::make($fileName-> getRealPath());
+            $image_resize->resize(800, 600);
+            $image_resize->save(public_path('student/' . $newName)); 
+            // $fileName->move('student',$newName);
             $student->photo = 'student/' . $newName;
         }
 
@@ -58,7 +62,9 @@ class StudentController extends Controller
         $request->session()->flash('message', 'Record created successfuly');
         
 
-        return redirect()->back();
+        // return redirect()->back();
+        $students = Student::all();
+        return view('students.index', compact('students'));
 
     }
 
@@ -119,6 +125,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student->delete();
+        return redirect()->back();
     }
 }

@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/students" class="btn btn-primary btn-sm">Back</a>
+                        <a href="/students" class="btn btn-primary btn-sm"><i class="fas fa-arrow-left"></i>Back</a>
                     </div>
 
                     <div class="card-body">
@@ -24,7 +24,7 @@
                                 <img src="{{ asset($student->photo) }}" alt="" width="120">
                             </div>
                             <div class="form-group">
-                                <label for="photo">Student photo</label>
+                                <label for="photo">Photo</label>
                                 <input id="photo" class="form-control-file" type="file" name="photo">
                             </div>
                             <div class="form-group">

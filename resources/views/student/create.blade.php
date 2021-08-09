@@ -28,10 +28,7 @@
                             <label for="photo">Photo</label>
                             <input id="photo" class="form-control-file" type="file" name="photo">
                         </div>
-                        @error('photo')
-                            <span class="text-danger">Please upload a photo!!</span>
-                    
-                         @enderror
+                        
                         <div class="form-group">
                             <label for="">FullName</label>
                             <input id="my-input" class="form-control" type="text" name="name">
@@ -39,7 +36,7 @@
                         @error('name')
                             <span class="text-danger">Please add your full name!!</span>
                     
-                         @enderror
+                        @enderror
                         <div class="form-group">
                             <label for="">Moblie</label>
                             <input id="my-input" class="form-control" type="text" name="mobile">
@@ -53,7 +50,7 @@
                             <input id="my-input" class="form-control" type="text" name="address">
                         </div>
                         @error('name')
-                            <span class="text-danger">Please add your number!!</span>
+                            <span class="text-danger">Please add your address!!</span>
                     
                          @enderror
 

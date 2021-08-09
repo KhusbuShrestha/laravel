@@ -22,21 +22,22 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($students as $student)
+                            @foreach ($students as $index => $student)
                             <tr>
-                              <td>{{ $student->id }}</td>
-                              <td><img src="{{ asset($student->photo) }}" width="60" alt=""></td>
+                              <td>{{ ++$index }}</td>
+                              <td><img src="{{ asset($student->photo) }}" width="60" height="60" alt=""></td>
                               <td>{{ $student->name }}</td>
                               <td>{{ $student->mobile }}</td>
                               <td>{{ $student->address }}</td>
-                              <td>{{ $student->faculty->name }}</td>
+                              <td>{{ $student->faculty->name}}</td>
                               <td>
                                 <form action="/students/{{ $student->id }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <a href="/students/{{ $student->id }}/edit" class="badge bg-primary text-decoration-none">Edit <i class="fas fa-user-edit"></i></a>
-                                <button type="submit" class="btn badge bg-danger text-decoration-none">Delete <i class="fas fa-user-minus"></i></button>
+                                <button type="submit" onclick="return confirm('Are your sure you want to delete?')" class="btn badge bg-danger text-decoration-none">Delete <i class="fas fa-user-minus"></i></button>
                                 </form>
+                              </td>
                             </tr>
                                 
                             @endforeach

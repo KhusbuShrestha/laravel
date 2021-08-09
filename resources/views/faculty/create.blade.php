@@ -15,6 +15,7 @@
                                 <label for="">Faculty Name</label>
                                 <input id="my-input" class="form-control" type="text" name="name">
                             </div>
+                            
                             <div>
                                 <button type="submit" class="ms-2 btn btn-primary">Save <i class="fas fa-save"></i></button>
                             </div>

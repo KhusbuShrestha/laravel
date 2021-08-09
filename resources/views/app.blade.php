@@ -234,8 +234,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/gallery" class="nav-link">
-                  <i class="nav-icon fas fa-book-reader"></i>
+                <a href="/galleries" class="nav-link">
+                  <i class="fas fa-images"></i>
                   <p>
                     Gallary
                   </p>
@@ -249,7 +249,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   {{ __('Logout') }}
               </a>
 
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              <form id="logout-form"  onclick="return confirm('Are your sure you want to delete?')" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
               </form>
 

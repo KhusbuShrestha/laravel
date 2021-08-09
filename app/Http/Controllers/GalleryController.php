@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Gallery;
+use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -13,7 +16,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('gallery.index');
+        $galleries = Gallery::all();
+        return view('gallery.index', compact('galleries'));
     }
 
     /**
@@ -23,7 +27,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('gallery.create');
     }
 
     /**
@@ -34,7 +38,22 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gallery = new Gallery();
+        $gallery->name = $request->name;
+        $gallery->save();
+
+        if($request->hasFile('images')){
+            foreach($request->images as $image){
+                $galleryImage = new GalleryImage();
+                $newName = time() . $image->getClientOriginalName();
+                $image->move('galleryimage', $newName);
+                $galleryImage->name = 'galleryimage/' . $newName;
+                $galleryImage->gallery_id = $gallery->id;
+                $galleryImage->save();
+
+            }
+        }
+        return redirect()->back();
     }
 
     /**
@@ -45,7 +64,8 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        //
+        $photos = GalleryImage::where('gallery_id', $id)->get();
+        return view('gallery.show',compact('photos'));
     }
 
     /**
@@ -56,7 +76,9 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $gallaries = Gallery::all();
+        $gallery = Gallery::find('$id');
+        return view('gallery.edit', compact('gallery', 'gallery'));
     }
 
     /**
@@ -79,6 +101,10 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
+
+        $gallery = Gallery::find($id);
+        $gallery->delete();
+        return redirect()->back();
     }
 }

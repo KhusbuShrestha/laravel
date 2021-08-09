@@ -39,9 +39,12 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
+        // $data = $request->validate(['name'=>'required']);
+        
         $faculty = new Faculty();
         $faculty -> name = $request -> name;
         $faculty -> save();
+        $request->session()->flash('message', 'Record created successfuly');
         return redirect()->back();
     }
 
@@ -87,6 +90,9 @@ class FacultyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $faculty = Faculty::find($id);
+        $faculty->delete();
+        return redirect()->back();
     }
 }

@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::resource('/students',StudentController::class);
 Route::resource('/faculty',FacultyController::class);
 Route::resource('/teacher',TeacherController::class);
-Route::resource('/gallery',GalleryController::class);
+Route::resource('/galleries',GalleryController::class);
 
 
 
