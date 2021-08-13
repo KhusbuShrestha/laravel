@@ -241,6 +241,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/settings" class="nav-link">
+                  <i class="fas fa-user-cog"></i>
+                  <p>
+                    Settings
+                  </p>
+                </a>
+              </li>
              <li class="nav-item">
                   <a class="nav-link" href="{{ route('logout') }}"
                   onclick="event.preventDefault();

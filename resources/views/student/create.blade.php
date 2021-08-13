@@ -21,6 +21,7 @@
         
                 </div>
                 <div class="card-body">
+                   
                     <form action="/students" method="post" enctype="multipart/form-data">
                         @csrf
                         

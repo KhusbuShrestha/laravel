@@ -16,7 +16,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+       $students = Student::all();
        return view('student.index', compact('students')); 
     }
 
@@ -62,9 +62,8 @@ class StudentController extends Controller
         $request->session()->flash('message', 'Record created successfuly');
         
 
-        // return redirect()->back();
-        $students = Student::all();
-        return view('students.index', compact('students'));
+        return redirect()->back();
+       
 
     }
 

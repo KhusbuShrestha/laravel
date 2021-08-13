@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use App\Models\GalleryImage;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class GalleryController extends Controller
 {
@@ -46,7 +47,11 @@ class GalleryController extends Controller
             foreach($request->images as $image){
                 $galleryImage = new GalleryImage();
                 $newName = time() . $image->getClientOriginalName();
-                $image->move('galleryimage', $newName);
+                // $image->move('galleryimage', $newName);
+                $image_resize = Image::make($image->getRealPath());
+                $image_resize->resize(800, 600);
+                $image = $image_resize->save(public_path('galleryimage/' . $newName));
+                
                 $galleryImage->name = 'galleryimage/' . $newName;
                 $galleryImage->gallery_id = $gallery->id;
                 $galleryImage->save();

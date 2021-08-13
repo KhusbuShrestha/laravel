@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\StudentController;
@@ -24,6 +26,7 @@ Route::resource('/students',StudentController::class);
 Route::resource('/faculty',FacultyController::class);
 Route::resource('/teacher',TeacherController::class);
 Route::resource('/galleries',GalleryController::class);
+Route::resource('/settings', GeneralSettingController::class);
 
 
 
